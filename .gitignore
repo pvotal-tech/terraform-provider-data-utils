@@ -1,8 +1,9 @@
 .idea
 *.iml
-3rein-common-provider-tf-merger
+terraform-provider-data-utils
 *.sh
 .terraform*
 terraform.tfstate*
 bin/*
+
 

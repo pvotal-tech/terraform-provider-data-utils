@@ -21,35 +21,35 @@ func dataSourceDeepMergeConfig() *schema.Resource {
 	return &schema.Resource{
 		Schema: map[string]*schema.Schema{
 			"format": {
-				Description:      "Specify the type of input and output that the merger will be dealing with. Allowed values are: \"JSON\" or \"YAML\"",
+				Description:      "Specify the type of input and output that the merger will be dealing with. Allowed values are: \"JSON\" or \"YAML\".",
 				Type:             schema.TypeString,
 				Required:         true,
 				Optional:         false,
 				ValidateDiagFunc: validation.InEnum([]string{"JSON", "YAML"}, false),
 			},
 			"with_override": {
-				Description: "Specify whether the merger should append slices together when merging 2 arrays",
+				Description: "Specify whether the merger should override non-empty current-level attributes with non-empty next-level attributes values.",
 				Type:        schema.TypeBool,
 				Required:    false,
 				Optional:    true,
 				Default:     true,
 			},
 			"with_append_slice": {
-				Description: "Specify whether the merger should append slices together when merging 2 arrays",
+				Description: "Specify whether the merger should append slices instead of overwriting it. This implicitly overrides the `with_slice_deep_copy` behaviour.",
 				Type:        schema.TypeBool,
 				Required:    false,
 				Optional:    true,
-				Default:     true,
+				Default:     false,
 			},
 			"with_overwrite_with_empty_value": {
-				Description: "Specify whether the merger should allow empty values to override set values",
+				Description: "Specify whether the merger should override non empty current-level attributes with empty next-level attributes values. This implicitly enables the `with_override` flag.",
 				Type:        schema.TypeBool,
 				Required:    false,
 				Optional:    true,
-				Default:     true,
+				Default:     false,
 			},
 			"with_slice_deep_copy": {
-				Description: "Specify whether the merger should allow empty values to override set values",
+				Description: "Specify whether the merger should merge slice element one by one. This implicitly enables the `with_override` flag.",
 				Type:        schema.TypeBool,
 				Required:    false,
 				Optional:    true,
@@ -67,13 +67,13 @@ func dataSourceDeepMerge() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 			"inputs": {
-				Description: "A list of Objects that is deep merged into the `output` attribute.",
+				Description: "A list of YAML or JSON strings that will be merged into the `output` attribute. Inputs are processed in order.",
 				Type:        schema.TypeList,
 				Elem:        &schema.Schema{Type: schema.TypeString},
 				Required:    true,
 			},
 			"config": {
-				Description: "The merger configuration",
+				Description: "The merger configuration. Refer to https://github.com/imdario/mergo for more details regarding configuration behaviours.",
 				Type:        schema.TypeList,
 				MaxItems:    1,
 				MinItems:    1,
@@ -82,7 +82,7 @@ func dataSourceDeepMerge() *schema.Resource {
 			},
 
 			"output": {
-				Description: "The deep-merged output.",
+				Description: "The deep-merged `output`, rendered in YAML or JSON, according to configuration.",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},

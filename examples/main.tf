@@ -51,9 +51,10 @@ data "deep_merge" "json" {
 }
 
 output "yaml_results" {
-  value = [for yaml in data.deep_merge.yaml: yamldecode(yaml.output)]
+  value = {for yaml in keys(local.yamlTestCases): yaml => yamldecode(data.deep_merge.yaml[yaml].output)}
 }
 
+
 output "json_results" {
-  value = [for json in data.deep_merge.json: jsondecode(json.output)]
+  value = {for json in keys(local.jsonTestCases): json => jsondecode(data.deep_merge.json[json].output)}
 }

@@ -8,10 +8,17 @@ OS_ARCH=linux_amd64
 
 default: install
 
-build:
+fmt:
+	go fmt ./...
+
+vet:
+	go vet ./...
+
+
+build: fmt vet
 	go build -o ${BINARY}
 
-release:
+release: fmt vet
 	GOOS=darwin GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_darwin_amd64
 	GOOS=freebsd GOARCH=386 go build -o ./bin/${BINARY}_${VERSION}_freebsd_386
 	GOOS=freebsd GOARCH=amd64 go build -o ./bin/${BINARY}_${VERSION}_freebsd_amd64
@@ -36,6 +43,11 @@ test:
 testacc:
 	TF_ACC=1 go test $(TEST) -v $(TESTARGS) -timeout 120m
 
+clean-example:
+	cd examples && rm -rf .terraform && rm -f terraform.tfstate* && rm -f .terraform.lock.hcl
 
-example: install
+example: clean-example install
 	cd examples && terraform init && terraform apply -auto-approve
+
+generate:
+	go generate ./...

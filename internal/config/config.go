@@ -4,6 +4,7 @@ import (
 	"github.com/imdario/mergo"
 )
 
+// Config represents a simple configuration object the merger tool
 type Config struct {
 	Format                      string
 	WithOverride                bool
@@ -12,6 +13,7 @@ type Config struct {
 	WithSliceDeepCopy           bool
 }
 
+// New creates a new configuration from the provided input
 func New(input []interface{}) *Config {
 	if len(input) == 0 || input[0] == nil {
 		return nil
@@ -27,6 +29,7 @@ func New(input []interface{}) *Config {
 	}
 }
 
+// ToMergoConfig returns an array of mergo.Config functions based on the current value of the configuration.
 func (c *Config) ToMergoConfig() []func(config *mergo.Config) {
 	configs := make([]func(config *mergo.Config), 0)
 
