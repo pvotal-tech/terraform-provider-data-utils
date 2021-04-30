@@ -3,4 +3,5 @@
 3rein-common-provider-tf-merger
 *.sh
 .terraform*
-terraform.state*
+terraform.tfstate*
+
