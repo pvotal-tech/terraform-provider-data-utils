@@ -8,14 +8,14 @@ Data oriented terraform utils provider
 ```
 terraform {
   required_providers {
-    merger = {
-      source = "app.terraform.io/3rein/3rein-common-provider-tf-merger"
-      version = "~> 0.0.1"
+    data-utils = {
+      source = "3rein/terraform-provider-data-utils"
+      version = "~> 0.0.2"
     }
   }
 }
 
-provider "merger" {
+provider "data-utils" {
   # Configuration options
 }
 
@@ -26,13 +26,16 @@ provider "merger" {
 ```
 data "deep_merge" "merged" {
   inputs = [
-    var.object1,
-    var.object2,
+    yamlencode(var.object1),
+    yamlencode(var.object2),
   ]
-  with_override = true
-  with_append_slice = true
-  with_overwrite_with_empty_value = true
-  with_slice_deep_copy = true
+  config {
+    format = "YAML"
+    with_override = true
+    with_append_slice = true
+    with_overwrite_with_empty_value = true
+    with_slice_deep_copy = true
+  }
 }
 
 output "merged" {
