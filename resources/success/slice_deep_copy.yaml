@@ -1,0 +1,22 @@
+config:
+  with_override: false
+  with_append_slice: false
+  with_overwrite_with_empty_value: false
+  with_slice_deep_copy: true
+inputs:
+  - object:
+      array:
+        - some: thing
+          in: the object
+  - object:
+      array:
+        - some: thing
+          to: add
+        - some: ignored
+          things: will be ignored since base array only has 1 element
+output:
+  object:
+    array:
+      - some: thing
+        in: the object
+        to: add

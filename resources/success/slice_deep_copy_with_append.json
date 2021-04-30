@@ -1,0 +1,52 @@
+{
+  "config": {
+    "with_append_slice": true,
+    "with_override": false,
+    "with_overwrite_with_empty_value": false,
+    "with_slice_deep_copy": true
+  },
+  "inputs": [
+    {
+      "object": {
+        "array": [
+          {
+            "in": "the object",
+            "some": "thing"
+          }
+        ]
+      }
+    },
+    {
+      "object": {
+        "array": [
+          {
+            "some": "other thing",
+            "to": "add will create a new array entry since append is on"
+          },
+          {
+            "some": "not ignored",
+            "things": "in 2nd object since append is on"
+          }
+        ]
+      }
+    }
+  ],
+  "output": {
+    "object": {
+      "array": [
+        {
+          "in": "the object",
+          "some": "thing"
+        },
+        {
+          "some": "other thing",
+          "to": "add will create a new array entry since append is on"
+        },
+        {
+          "some": "not ignored",
+          "things": "in 2nd object since append is on"
+        }
+      ]
+    }
+  }
+}

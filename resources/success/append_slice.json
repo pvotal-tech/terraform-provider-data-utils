@@ -1,0 +1,52 @@
+{
+  "config": {
+    "with_append_slice": true,
+    "with_override": false,
+    "with_overwrite_with_empty_value": false,
+    "with_slice_deep_copy": false
+  },
+  "inputs": [
+    {
+      "object": {
+        "array": [
+          {
+            "in": "the object",
+            "some": "thing"
+          },
+          {
+            "in": "the same object",
+            "some": "other"
+          }
+        ]
+      }
+    },
+    {
+      "object": {
+        "array": [
+          {
+            "in": "the other object",
+            "some": "a merged thing"
+          }
+        ]
+      }
+    }
+  ],
+  "output": {
+    "object": {
+      "array": [
+        {
+          "in": "the object",
+          "some": "thing"
+        },
+        {
+          "in": "the same object",
+          "some": "other"
+        },
+        {
+          "in": "the other object",
+          "some": "a merged thing"
+        }
+      ]
+    }
+  }
+}

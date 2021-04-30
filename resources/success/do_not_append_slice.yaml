@@ -1,0 +1,21 @@
+config:
+  with_override: true
+  with_append_slice: false
+  with_overwrite_with_empty_value: false
+  with_slice_deep_copy: false
+inputs:
+  - object:
+      array:
+        - some: thing
+          in: the object
+        - some: other
+          in: the same object
+  - object:
+      array:
+        - some: a merged thing
+          in: the other object
+output:
+  object:
+    array:
+      - some: a merged thing
+        in: the other object
