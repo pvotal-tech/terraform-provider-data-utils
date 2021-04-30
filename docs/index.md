@@ -3,7 +3,7 @@
 page_title: "data-utils Provider"
 subcategory: ""
 description: |-
-  
+  Simple utils provider for terraform data manipulations
 ---
 
 # data-utils Provider
