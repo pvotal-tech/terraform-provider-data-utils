@@ -1,4 +1,4 @@
-module github.com/3rein/terraform-provider-data-utils
+module github.com/pvotal-tech/terraform-provider-data-utils
 
 go 1.16
 

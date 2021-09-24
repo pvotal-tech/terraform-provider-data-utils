@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/3rein/terraform-provider-data-utils/internal/provider"
+	"github.com/pvotal-tech/terraform-provider-data-utils/internal/provider"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
 

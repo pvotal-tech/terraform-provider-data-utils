@@ -8,10 +8,10 @@ import (
 
 	"github.com/imdario/mergo"
 
-	"github.com/3rein/terraform-provider-data-utils/internal/config"
+	"github.com/pvotal-tech/terraform-provider-data-utils/internal/config"
 	"gopkg.in/yaml.v3"
 
-	"github.com/3rein/terraform-provider-data-utils/internal/validation"
+	"github.com/pvotal-tech/terraform-provider-data-utils/internal/validation"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"

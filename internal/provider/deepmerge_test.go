@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/3rein/terraform-provider-data-utils/internal/config"
+	"github.com/pvotal-tech/terraform-provider-data-utils/internal/config"
 
 	"gopkg.in/yaml.v3"
 
