@@ -2,7 +2,7 @@ terraform {
   required_providers {
     data-utils = {
       version = "0.0.1"
-      source  = "3rein.com/3rein/data-utils"
+      source  = "pvotal-tech/data-utils"
     }
   }
 }

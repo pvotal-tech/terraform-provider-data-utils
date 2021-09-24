@@ -1,6 +1,6 @@
 TEST?=$$(go list ./... | grep -v 'vendor')
-HOSTNAME=3rein.com
-NAMESPACE=3rein
+HOSTNAME=pvotal.tech
+NAMESPACE=pvotal-tech
 NAME=data-utils
 BINARY=terraform-provider-${NAME}
 VERSION=0.0.1

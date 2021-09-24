@@ -9,8 +9,8 @@ Data oriented terraform utils provider
 terraform {
   required_providers {
     data-utils = {
-      source = "3rein/terraform-provider-data-utils"
-      version = "~> 0.0.2"
+      source = "pvotal-tech/terraform-provider-data-utils"
+      version = "~> 0.0.8"
     }
   }
 }
